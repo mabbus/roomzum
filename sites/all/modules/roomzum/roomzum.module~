@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * A module to create custom functions for roomzum.com
+ */
+
+function roomzum_posts_block_view($delta = '') {
+    print_r($delta);
+    switch ($delta) {
+    case 'home_featured':
+        $block['subject'] = t('Home Featured');
+        $block['content'] = roomzum_home_featured();
+    }
+    return $block;
+}
+
+function roomzum_home_featured() {
+    return "<h1>HIIII</h1>";
+}

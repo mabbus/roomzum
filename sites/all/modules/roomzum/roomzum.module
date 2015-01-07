@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * A module to create custom functions for roomzum.com
+ */
+
+function roomzum_block_view($delta = '') {
+    switch ($delta) {
+    case 'home_featured':
+        $block['subject'] = t('Home Featured');
+        $block['content'] = roomzum_home_featured();
+    }
+    return $block;
+}
+
+function roomzum_home_featured() {
+    $featured = db_query("select nid from node limit 6");
+    $html = '';
+    while($room = $featured->fetchAssoc()) {
+        $node = node_load($room);
+        $html .= '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <a href="single.html" class="propWidget-2">
+          <div class="fig">
+            <img src="' . image_style_url('featured_home', $node->field_images['und'][0]['filename']) . '" alt="Modern Residence in New York">
+            <img class="blur" src="' . image_style_url('featured_home', $node->field_images['und'][0]['filename']) . '" alt="Modern Residence in New York">
+            <div class="opac"></div>
+            <div class="priceCap osLight"><span>' . $node->price . '</span></div>
+            <h3 class="osLight">' . $node->title . '</h3>
+            <div class="address">' . $node->address . '</div>
+<!--
+            <ul class="rating">
+              <li><span class="fa fa-star star-1"></span></li>
+              <li><span class="fa fa-star star-2"></span></li>
+              <li><span class="fa fa-star star-3"></span></li>
+              <li><span class="fa fa-star star-4"></span></li>
+              <li><span class="fa fa-star-o star-5"></span></li>
+            </ul>
+-->
+          </div>
+        </a>
+      </div>';
+
+    }
+    return $html;
+}
