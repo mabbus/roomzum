@@ -51,6 +51,11 @@ stylesheets[all][] = system.theme.css
 
 ; Then we add our own stylesheet.
 stylesheets[all][] = css/styles.css
+stylesheets[all][] = css/font-awesome.css
+stylesheets[all][] = css/simple-line-icons.css
+stylesheets[all][] = css/fullscreen-slider.css
+stylesheets[all][] = css/bootstrap.css
+stylesheets[all][] = css/app.css
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.
 ; Instead, Zen now adds conditional-comment-included classes to the html
@@ -67,8 +72,6 @@ stylesheets[all][] = css/styles.css
 ; Optionally add some JavaScripts to your theme.
 
 ;scripts[] = js/script.js
-
-
 
 ; This section lists the regions defined in Zen's default page.tpl.php and
 ; maintenance-page.tpl.php files. The name in brackets is the machine name of
@@ -111,14 +114,14 @@ regions[page_bottom]    = Page bottom
 ; entry for it below. See the Drupal 7 Theme Guide for more info:
 ; https://drupal.org/node/171205#features
 
-features[] = logo
-features[] = name
-features[] = slogan
-features[] = node_user_picture
-features[] = comment_user_picture
-features[] = favicon
-features[] = main_menu
-features[] = secondary_menu
+;features[] = logo
+;features[] = name
+;features[] = slogan
+;features[] = node_user_picture
+;features[] = comment_user_picture
+;features[] = favicon
+;features[] = main_menu
+;features[] = secondary_menu
 
 
 
@@ -140,7 +143,7 @@ settings[zen_wireframes]           = 0
 ; To make this sub-theme an admin theme with shortcut links next to titles,
 ; uncomment the line below.
 
-;settings[shortcut_module_link]    = 1
+settings[shortcut_module_link]    = 1
 
 ; To add a Panels layout (which can also be used by Display Suite), uncomment
 ; the line below and see the documentation at: https://drupal.org/node/495654
