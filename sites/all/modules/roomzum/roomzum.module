@@ -15,19 +15,21 @@ function roomzum_block_view($delta = '') {
 }
 
 function roomzum_home_featured() {
-    $featured = db_query("select nid from node limit 6");
     $html = '';
-    while($room = $featured->fetchAssoc()) {
-        $node = node_load($room);
-        $html .= '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-        <a href="single.html" class="propWidget-2">
-          <div class="fig">
-            <img src="' . image_style_url('featured_home', $node->field_images['und'][0]['filename']) . '" alt="Modern Residence in New York">
-            <img class="blur" src="' . image_style_url('featured_home', $node->field_images['und'][0]['filename']) . '" alt="Modern Residence in New York">
-            <div class="opac"></div>
-            <div class="priceCap osLight"><span>' . $node->price . '</span></div>
-            <h3 class="osLight">' . $node->title . '</h3>
-            <div class="address">' . $node->address . '</div>
+    $featured = node_load_multiple(array(), array('type'=>'room'));
+    foreach($featured as $node) {
+        $addrArr = $node->field_room_address['und'][0];
+        $address = $addrArr['thoroughfare'] . ' ' . $addrArr['locality'] . ' ' . $addrArr['administrative_area'];
+        $html .= 
+        '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+           <a href="' . drupal_get_path_alias('node/' . $node->nid) . '" class="propWidget-2">
+             <div class="fig">
+               <img src="' . image_style_url('featured_home', $node->field_images['und'][0]['uri']) . '" alt="Modern Residence in New York">
+               <img class="blur" src="' . image_style_url('featured_home', $node->field_images['und'][0]['uri']) . '" alt="Modern Residence in New York">
+               <div class="opac"></div>
+               <div class="priceCap osLight"><span>$14000</span></div>
+               <h3 class="osLight">' . $node->title . '</h3>
+               <div class="address">' . $address . '</div>
 <!--
             <ul class="rating">
               <li><span class="fa fa-star star-1"></span></li>
@@ -37,9 +39,9 @@ function roomzum_home_featured() {
               <li><span class="fa fa-star-o star-5"></span></li>
             </ul>
 -->
-          </div>
-        </a>
-      </div>';
+             </div>
+           </a>
+         </div>';
 
     }
     return $html;
