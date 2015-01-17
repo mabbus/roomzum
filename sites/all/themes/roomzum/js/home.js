@@ -330,4 +330,8 @@
 
     $('input, textarea').placeholder();
 
+    $('.submit-home').click(function () {
+	window.location.href = "rooms/";
+    });
+
 })(jQuery);
