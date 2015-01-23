@@ -56,6 +56,8 @@ stylesheets[all][] = css/simple-line-icons.css
 stylesheets[all][] = css/fullscreen-slider.css
 stylesheets[all][] = css/bootstrap.css
 stylesheets[all][] = css/app.css
+stylesheets[all][] = css/app-blue.css
+
 
 ; Then we add our own stylesheet.
 stylesheets[all][] = css/styles.css

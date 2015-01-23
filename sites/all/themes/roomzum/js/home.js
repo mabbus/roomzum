@@ -331,7 +331,21 @@
     $('input, textarea').placeholder();
 
     $('.submit-home').click(function () {
-	window.location.href = "rooms/";
+	
+
+	var bed = $("input:radio[name=bedno]:checked" ).val();
+	var bath = $("input:radio[name=bathno]:checked" ).val();
+	var city = $('.city').val();
+	var query = "";
+
+	if(bed != "" || bath != "" || city != "") {
+	    query = "?";
+	    query =  (city != "") ? query + 'city=' + encodeURIComponent(city) + "&": query;
+	    query =  (bed != "") ? query + 'field_bedrooms_tid=' + bed + "&" : query;
+	    query =  (bath != "") ? query + 'field_bathrooms_tid=' + bath : query;
+	} 
+
+	window.location.href = "rooms/" + query;
     });
 
 })(jQuery);
