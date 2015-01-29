@@ -5,7 +5,7 @@ $user = user_load($uid);
 ?>
 
 <div id="mapView" class="mob-min">
-    <?php $block = block_render('views', 'node_map-block'); print $block; ?>
+<?php $block = block_render('views', 'node_map-block');  var_dump($node); //print $block; ?>
 </div>
 
 <div id="content" class="mob-max">
@@ -97,17 +97,7 @@ $user = user_load($uid);
   <div class="amenities">
     <h3>Amenities</h3>
     <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-car"></span> Garage</div>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-tint"></span> Outdoor Pool</div>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem inactive"><span class="fa fa-leaf"></span> Garden</div>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem inactive"><span class="fa fa-shield"></span> Security System</div>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-wifi"></span> Internet</div>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem inactive"><span class="fa fa-phone"></span> Telephone</div>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-asterisk"></span> Air Conditioning</div>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem inactive"><span class="fa fa-sun-o"></span> Heating</div>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-fire"></span> Fireplace</div>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-arrows-v"></span> Balcony</div>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-desktop"></span> TV Cable</div>
+      <?php roomzum_show_amenities($node->field_amenities['und']); ?>
     </div>
   </div>
   <div class="similar">
@@ -522,7 +512,8 @@ $user = user_load($uid);
   
   
   <div class="comments">
-    <h3><span>4</span> Comments</h3>
+    <h3><span><?php print $node->comment_count; ?></span> Comments</h3>
+<?php forEach($node->comment as $k => $c ) { ?>
     <div class="comment">
       <div class="commentAvatar">
         <img class="avatar" src="images/avatar-3.png" alt="avatar">
@@ -564,49 +555,7 @@ $user = user_load($uid);
       </div>
       <div class="clearfix"></div>
     </div>
-    <div class="comment">
-      <div class="commentAvatar">
-        <img class="avatar" src="images/avatar-5.png" alt="avatar">
-        <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
-      </div>
-      <div class="commentContent">
-        <div class="commentName">Alex Rogers</div>
-        <div class="commentBody">
-          Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit
-        </div>
-        <div class="commentActions">
-          <div class="commentTime"><span class="icon-clock"></span> 20 minutes ago</div>
-          <ul>
-            <li><a href="#"><span class="icon-action-undo"></span></a></li>
-            <li><a href="#"><span class="icon-like"></span> 13</a></li>
-          </ul>
-          <div class="clearfix"></div>
-        </div>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-    <div class="comment">
-      <div class="commentAvatar">
-        <img class="avatar" src="images/avatar-2.png" alt="avatar">
-        <div class="commentArrow"><span class="fa fa-caret-left"></span></div>
-      </div>
-      <div class="commentContent">
-        <div class="commentName">Jane Smith</div>
-        <div class="commentBody">
-          Lorem ipsum dolor sit amet, consecteter adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-        </div>
-        <div class="commentActions">
-          <div class="commentTime"><span class="icon-clock"></span> 5 minutes ago</div>
-          <ul>
-            <li><a href="#"><span class="icon-action-undo"></span></a></li>
-            <li><a href="#"><span class="icon-like"></span> 13</a></li>
-          </ul>
-          <div class="clearfix"></div>
-        </div>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </div>
+<?php } ?>
   <div class="commentsFormWrapper">
     <div class="cfAvatar">
       <img class="avatar" src="images/avatar-1.png" alt="avatar">

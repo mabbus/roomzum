@@ -41,7 +41,7 @@
 
   <?php if ($attachment_before): ?>
     <div id="mapView" class="attachment attachment-before">
-      <?php print $attachment_before; ?>
+<?php print $attachment_before; ?>
     </div>
   <?php endif; ?>
 

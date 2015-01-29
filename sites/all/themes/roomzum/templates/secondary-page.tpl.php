@@ -4,11 +4,9 @@
 <div id="header">
   <div class="logo">
     <a href="/">
-      <span class="fa fa-home marker"></span>
-      <span class="logoText">reales</span>
+     <div class="inner-logo"></div>
     </a>
   </div>
-  <a href="#" class="navHandler"><span class="fa fa-bars"></span></a>
   <div class="search">
     <span class="searchIcon icon-magnifier"></span>
     <input type="text" placeholder="Search for houses, apartments...">
