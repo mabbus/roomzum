@@ -23,7 +23,7 @@ $user = user_load($uid);
           <img src="<?php print image_style_url('node_slider_image', $image['uri']);?>" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              
+              Some Caption
             </div>
           </div>
         </div>        

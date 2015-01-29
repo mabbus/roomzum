@@ -5607,3 +5607,7 @@ blockquote {
 .pager {
     clear: both;
 }
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    margin: 0 auto;
+}
