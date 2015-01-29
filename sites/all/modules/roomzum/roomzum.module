@@ -16,10 +16,10 @@ function roomzum_block_view($delta = '') {
 
 function roomzum_home_featured() {
     $html = '';
-    $featured = node_load_multiple(array(), array('type'=>'room'));
+    $featured = node_load_multiple(array(), array('type'=>'room'));    
     foreach($featured as $node) {
-        $addrArr = $node->field_room_address['und'][0];
-        $address = $addrArr['thoroughfare'] . ' ' . $addrArr['locality'] . ' ' . $addrArr['administrative_area'];
+        $addrArr = $node->field_room_location['und'][0];
+        $address = $addrArr['street'] . ' ' . $addrArr['city'] . ' ' . $addrArr['province'];
         $html .= 
         '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
            <a href="' . drupal_get_path_alias('node/' . $node->nid) . '" class="propWidget-2">

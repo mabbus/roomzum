@@ -14,11 +14,11 @@
     <a href="#" class="home-navHandler visible-xs"><span class="fa fa-bars"></span></a>   
     <div class="home-nav">      
       <ul>
-	<?php if (!user_is_logged_in()) { ?>
+	<?php if (!$user->uid) { ?>
         <li><a href="#" data-toggle="modal" data-target="#signup">Sign Up</a></li>	
         <li><a href="#" data-toggle="modal" data-target="#signin">Sign In</a></li>
 	<?php } else { ?>
-        <li><a href="add.html" class="btn btn-green">List a Property</a></li>
+        <li><a href="node/add" class="btn btn-green">List a Property</a></li>
 	<?php } ?>
       </ul>
     </div>

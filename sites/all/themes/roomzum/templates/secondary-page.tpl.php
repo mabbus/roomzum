@@ -17,7 +17,7 @@ $userObj = user_load($user->uid);
   <div class="headerUserWraper">
     <a href="#" class="userHandler dropdown-toggle" data-toggle="dropdown"><span class="icon-user"></span><span class="counter">5</span></a>
     <a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">
-      <img class="avatar headerAvatar pull-left" src="<?php print image_style_url('thumbnail', $userObj->picture->uri); ?>" alt="avatar">
+      <img class="avatar headerAvatar pull-left" src="<?php print image_style_url('avatar', $userObj->picture->uri); ?>" alt="avatar">
       <div class="userTop pull-left">
         <span class="headerUserName"><?php print $user->name; ?></span> <span class="fa fa-angle-down"></span>
       </div>
@@ -25,7 +25,7 @@ $userObj = user_load($user->uid);
     </a>
     <div class="dropdown-menu pull-right userMenu" role="menu">
       <div class="mobAvatar">
-	<img class="avatar mobAvatarImg" src="<?php print image_style_url('thumbnail', $userObj->picture->uri); ?>" alt="avatar">
+	<img class="avatar mobAvatarImg" src="<?php print image_style_url('avatar', $userObj->picture->uri); ?>" alt="avatar">
         <div class="mobAvatarName"><?php print $user->name;?></div>
       </div>
       <ul>
