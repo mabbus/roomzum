@@ -1,4 +1,6 @@
-
+<?php global $user;
+$userObj = user_load($user->uid);
+?>
 <!-- Header -->
 
 <div id="header">
@@ -11,34 +13,32 @@
     <span class="searchIcon icon-magnifier"></span>
     <input type="text" placeholder="Search for houses, apartments...">
   </div>
+  <?php if($user->uid) { ?>
   <div class="headerUserWraper">
     <a href="#" class="userHandler dropdown-toggle" data-toggle="dropdown"><span class="icon-user"></span><span class="counter">5</span></a>
     <a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">
-      <img class="avatar headerAvatar pull-left" src="images/avatar-1.png" alt="avatar">
+      <img class="avatar headerAvatar pull-left" src="<?php print image_style_url('thumbnail', $userObj->picture->uri); ?>" alt="avatar">
       <div class="userTop pull-left">
-	<span class="headerUserName">John Smith</span> <span class="fa fa-angle-down"></span>
+        <span class="headerUserName"><?php print $user->name; ?></span> <span class="fa fa-angle-down"></span>
       </div>
       <div class="clearfix"></div>
     </a>
     <div class="dropdown-menu pull-right userMenu" role="menu">
       <div class="mobAvatar">
-	<img class="avatar mobAvatarImg" src="images/avatar-1.png" alt="avatar">
-	<div class="mobAvatarName">John Smith</div>
+	<img class="avatar mobAvatarImg" src="<?php print image_style_url('thumbnail', $userObj->picture->uri); ?>" alt="avatar">
+        <div class="mobAvatarName"><?php print $user->name;?></div>
       </div>
       <ul>
 	<li><a href="#"><span class="icon-settings"></span>Settings</a></li>
-	<li><a href="profile.html"><span class="icon-user"></span>Profile</a></li>
+	<li><a href="/user/<?php print $user->uid;?>"><span class="icon-user"></span>Profile</a></li>
 	<li><a href="#"><span class="icon-bell"></span>Notifications <span class="badge pull-right bg-red">5</span></a></li>
 	<li class="divider"></li>
-	<li><a href="#"><span class="icon-power"></span>Logout</a></li>
+	<li><a href="/user/logout"><span class="icon-power"></span>Logout</a></li>
       </ul>
     </div>
   </div>
+  <?php } ?>
   <div class="headerNotifyWraper">
-    <a href="#" class="headerNotify dropdown-toggle" data-toggle="dropdown">
-      <span class="notifyIcon icon-bell"></span>
-      <span class="counter">5</span>
-    </a>
     <div class="dropdown-menu pull-right notifyMenu" role="menu">
       <div class="notifyHeader">
 	<span>Notifications</span>

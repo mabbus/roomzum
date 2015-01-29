@@ -5,7 +5,7 @@ $user = user_load($uid);
 ?>
 
 <div id="mapView" class="mob-min">
-<?php $block = block_render('views', 'node_map-block');  var_dump($node); //print $block; ?>
+<?php $block = block_render('views', 'node_map-block'); //print $block; ?>
 </div>
 
 <div id="content" class="mob-max">

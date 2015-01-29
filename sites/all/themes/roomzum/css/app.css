@@ -5184,6 +5184,12 @@ blockquote {
     .search {
         display: none;
     }
+
+    .inner-logo {
+	background: url('../images/roomzum_logo.png') center no-repeat;
+	background-size: 100%;
+    }
+
     .logo, .logo.expanded {
         position: absolute;
         top: 0;

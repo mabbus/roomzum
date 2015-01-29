@@ -46,3 +46,20 @@ function roomzum_home_featured() {
     }
     return $html;
 }
+
+function roomzum_show_amenities ($arr) {
+    $html = '';
+    $amenitiesArr = [];
+
+    forEach($arr as $k => $amenity) {
+        // $amenitiesArr[$amenity->vocabulary_machine_name] = $amenity->name;
+        $html .= '<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-asterisk"></span> ' . $amenity['taxonomy_term']->name . '</div>';
+    }
+
+    /* forEach($taxonomy_terms as $k => $t) {
+       
+    } */
+
+    print $html;
+        
+}
